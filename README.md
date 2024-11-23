@@ -1,6 +1,6 @@
-// 你好，我叫马云鹏
-// 正在寻求linux运维职位的实习
-// 页面会有分享自己写的自动安装的shell脚本 欢迎指出错误
+- 你好，我叫马云鹏
+- 正在寻求linux运维职位的实习
+- 页面会有分享自己写的自动安装的shell脚本 欢迎指出错误
 👋 Hi, I’m @Mrma3
 - 👀 I’m interested in ...
 - 🌱 I’m currently learning ...
