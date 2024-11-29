@@ -129,6 +129,7 @@ if [ -f "$home/pgsqldata/data/postgresql.conf" ]; then
         echo "请执行cd $home/pgsql/bin"
         echo "记得切换postgres用户哦root不给启 sudo -u postgres bash "
         echo "执行  ./pg_ctl -D /home/postgres/pgsqldata/data -l logfile start"
+        echo "如果psql环境变量不生效 在postgres 用户下执行source ~/.bash_profile"
         
 else
         cd $home/pgsql/bin
