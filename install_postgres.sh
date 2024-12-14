@@ -9,10 +9,24 @@ package_url="https://ftp.postgresql.org/pub/source/v10.22/$tar"
 result=$(cat /etc/passwd | grep $user | awk -F: '{print $1}')
 
 # 下载一些依赖
-yum -y install zlib zlib-devel cracklib-devel readline-devel gcc
+packages="zlib zlib-devel cracklib-devel readline-devel gcc make wget net-tools"
+installed_packages=""
+not_installed_packages=""
+for package in $packages; do
+        # if 语句会默认对比 上次命令的操作码 来判断执行then还是else 一般情况下不用特别写 if [ $? -eq 0] 这种
+    if rpm -q $package >/dev/null 2>&1; then
+        echo "$package 必须软件已经安装"
+        installed_packages="$installed_packages $package"
+    else
+        echo “正在安装...”
+        yum install -y $package
+        not_installed_packages="$not_installed_packages $package"
+    fi
+done
+echo "已安装的软件包：$installed_packages"
+echo "本次安装的软件包：$not_installed_packages"  
 
-
-# 检查redis压缩包是否已经存在  
+# 检查postgres压缩包是否已经存在  
 if [ ! -f "$tar" ]; then
     # 如果不存在，下载  
     echo "1.正在下载postgres压缩包..."  
